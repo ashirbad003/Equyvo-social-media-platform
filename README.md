@@ -241,7 +241,7 @@ https://ash-tech.lovable.app/
 
 LinkedIn
 
-(Add your LinkedIn profile here)
+https://www.linkedin.com/in/ashirbad003/
 
 ---
 
