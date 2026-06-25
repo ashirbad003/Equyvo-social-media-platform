@@ -1,135 +1,306 @@
+<!-- ========================================================= -->
+
+<!--                    EQUYVO README - PART 1                 -->
+
+<!-- ========================================================= -->
+
 <div align="center">
 
-<img src="docs/logo.png" width="180" alt="Equyvo Logo"/>
+<img src="assets/logo.png" width="170"/>
 
-# 🚀 Equyvo
+# 🌍 Equyvo
 
-### One Platform. Infinite Connections.
+### Modern Cross-Platform Social Media Platform
 
-A modern AI-powered social media platform that brings together communication, content sharing, communities, and intelligent recommendations into one seamless experience.
+<p>
 
-![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-6-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-3-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
-![AWS Cognito](https://img.shields.io/badge/AWS-Cognito-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+A next-generation social media platform built using **React**, **TypeScript**, **Vite**, **Supabase**, and **Capacitor**.
+
+Designed to deliver a fast, secure and immersive experience across **Android**, **iOS**, **Web**, and **Desktop**.
+
+</p>
+
+<br>
+
+![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge\&logo=react\&logoColor=white)
+
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge\&logo=typescript\&logoColor=white)
+
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge\&logo=vite\&logoColor=white)
+
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge\&logo=supabase\&logoColor=white)
+
+![Capacitor](https://img.shields.io/badge/Capacitor-119EFF?style=for-the-badge\&logo=capacitor\&logoColor=white)
+
 ![License](https://img.shields.io/badge/License-MIT-success?style=for-the-badge)
+
+<br>
+
+⭐ If you like this project, consider giving it a **Star**.
 
 </div>
 
 ---
 
-# 📖 Overview
+# 📑 Table of Contents
 
-Equyvo is a modern AI-powered social media platform developed to deliver a unified social networking experience. The application combines powerful social features with intelligent recommendations, secure authentication, responsive design, and a scalable architecture.
-
-The goal of Equyvo is to provide users with a seamless platform where they can connect, share ideas, discover content, and interact with communities in a fast and secure environment.
-
----
-
-# ✨ Features
-
-- 🔐 Secure User Authentication
-- 👤 User Profile Management
-- 📝 Create, Edit & Delete Posts
-- ❤️ Like & React to Posts
-- 💬 Comment System
-- 🤝 Follow & Connect with Users
-- 🔍 AI-Powered Smart Search
-- 📊 Personalized Feed
-- 🌙 Dark & Light Mode
-- 📱 Fully Responsive Design
-- ⚡ Optimized Performance
-- ☁️ Cloud Ready Architecture
+* Overview
+* Why Equyvo?
+* Features
+* Application Preview
+* Screenshots
+* Technology Stack
+* Architecture
+* Installation
+* Project Report
+* Future Roadmap
+* Author
 
 ---
 
-# 🎯 Key Highlights
+# 🚀 Overview
 
-- AI-Powered Search
-- Modern UI/UX
-- Component-Based Architecture
-- Responsive Design
-- Secure Authentication
-- Scalable Structure
-- Fast Performance
-- Clean Codebase
-- Team Collaboration
-- Easy Deployment
+Equyvo is a modern cross-platform social networking application that combines the most engaging features from today's leading social platforms into one seamless experience.
+
+The application focuses on speed, accessibility, security and scalability while delivering a beautiful user experience across multiple devices.
+
+It is optimized for:
+
+* 🌐 Web
+* 🤖 Android
+* 🍎 iOS
+* 💻 Desktop
+
+Built with modern technologies including React, TypeScript, Vite, Supabase and Capacitor.
 
 ---
 
 # 💡 Why Equyvo?
 
-Equyvo was developed to simplify the social networking experience by combining modern communication, intelligent recommendations, user engagement, and a beautiful interface into a single application.
+Most social media platforms focus on a single type of interaction.
+
+Equyvo brings multiple experiences together into one unified platform.
+
+Users can:
+
+* 📷 Share Stories
+* 🎥 Watch Moments
+* 💬 Post Thoughts
+* 📸 Upload Images
+* 🎞 Share Videos
+* 💬 Chat in Real Time
+* 👤 Manage Profiles
+* 🔍 Discover People
+* 🤖 Search using AI-powered features
+
+All inside one modern application.
 
 ---
 
-# 🛠 Tech Stack
+# ✨ Key Features
 
-## Frontend
+### 👤 User Authentication
 
-- React.js
-- TypeScript
-- Vite
-- Tailwind CSS
-- React Router DOM
-- Radix UI
-- Lucide React
-
-## Authentication
-
-- AWS Cognito
-
-## Development Tools
-
-- Git
-- GitHub
-- npm
-- ESLint
+* Secure Login
+* Secure Registration
+* Session Management
 
 ---
 
-# 📦 Major Dependencies
+### 📱 Social Features
 
-- React
-- React Router DOM
-- TypeScript
-- Tailwind CSS
-- Vite
-- AWS Cognito
-- Radix UI
-- Lucide React
+* Stories
+* Moments
+* Posts
+* Thoughts
+* Likes
+* Comments
+* Sharing
+* Follow System
 
 ---
 
-# 📂 Project Structure
+### 💬 Communication
 
-```
-Equyvo/
+* Real-time Chat
+* Online Status
+* Media Sharing
+* Notifications
+
+---
+
+### 🤖 Smart Features
+
+* AI Powered Search
+* Smart Recommendations
+* Discover Page
+
+---
+
+### ⚡ Performance
+
+* Offline Support
+* Fast Loading
+* Error Recovery
+* Network Monitoring
+
+---
+
+### 🌍 Cross Platform
+
+Supports
+
+* Android
+* iOS
+* Web
+* Desktop
+
+---
+
+# 🖼 Project Overview
+
+<p align="center">
+
+<img src="assets/overview.png"/>
+
+</p>
+
+---
+
+# 📱 Application Screens
+
+## 🏠 Home
+
+<img src="assets/home.png"/>
+
+---
+
+## 🔍 Discover
+
+<img src="assets/discover.png"/>
+
+---
+
+## ➕ Create
+
+<img src="assets/create.png"/>
+
+---
+
+## 💭 Thoughts
+
+<img src="assets/thoughts.png"/>
+
+---
+
+## 👤 Profile
+
+<img src="assets/profile.png"/>
+
+---
+
+## ⚙️ Settings
+
+<img src="assets/settings.png"/>
+
+---
+
+> ✅ **End of Part 1**
+
+The next part will include:
+
+* 🛠 Technology Stack
+* 📂 Folder Structure
+* 🏗 Architecture
+* 📦 Installation
+* 🚀 Deployment
+* 📄 Project Report
+
+<!-- ========================================================= -->
+
+<!--                    EQUYVO README - PART 2                 -->
+
+<!-- ========================================================= -->
+
+# 🛠 Technology Stack
+
+## 🎨 Frontend
+
+| Technology   | Purpose               |
+| ------------ | --------------------- |
+| React 18     | User Interface        |
+| TypeScript   | Type Safety           |
+| Vite         | Fast Build Tool       |
+| Tailwind CSS | Styling               |
+| Radix UI     | Accessible Components |
+| Lucide React | Icons                 |
+
+---
+
+## ⚙ Backend & Services
+
+| Technology       | Purpose                  |
+| ---------------- | ------------------------ |
+| Supabase         | Authentication           |
+| PostgreSQL       | Database                 |
+| Supabase Storage | Media Storage            |
+| Capacitor        | Android & iOS Deployment |
+
+---
+
+## 🌍 Platform Support
+
+| Platform   | Supported |
+| ---------- | --------- |
+| 🌐 Web     | ✅         |
+| 🤖 Android | ✅         |
+| 🍎 iOS     | ✅         |
+| 💻 Desktop | ✅         |
+
+---
+
+# 📋 Basic Features
+
+<p align="center">
+
+<img src="assets/basic-features.png"/>
+
+</p>
+
+---
+
+# 🏗 System Architecture
+
+<p align="center">
+
+<img src="assets/architecture.png"/>
+
+</p>
+
+---
+
+# 📁 Project Structure
+
+```text
+Equyvo
 │
-├── docs/
-│   ├── screenshots/
-│   ├── architecture/
-│   └── workflow/
-│
+├── android/
+├── ios/
 ├── public/
 ├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── hooks/
-│   ├── layouts/
-│   ├── lib/
-│   ├── pages/
-│   ├── services/
-│   ├── styles/
-│   └── utils/
+├── assets/
+│   ├── logo.png
+│   ├── overview.png
+│   ├── home.png
+│   ├── discover.png
+│   ├── create.png
+│   ├── thoughts.png
+│   ├── profile.png
+│   ├── settings.png
+│   ├── basic-features.png
+│   ├── architecture.png
+│   └── Equyvo_Project_Report.pdf
 │
-├── .gitignore
-├── LICENSE
-├── CONTRIBUTING.md
-├── CODE_OF_CONDUCT.md
-├── CHANGELOG.md
 ├── package.json
 ├── vite.config.ts
 └── README.md
@@ -137,33 +308,49 @@ Equyvo/
 
 ---
 
-# ⚙ Installation
+# 📦 Installation
 
-### Clone Repository
+## Clone Repository
 
 ```bash
 git clone https://github.com/ashirbad003/Equyvo-social-media-platform.git
 ```
 
-### Navigate
+---
+
+## Open Project
 
 ```bash
 cd Equyvo-social-media-platform
 ```
 
-### Install Dependencies
+---
+
+## Install Dependencies
+
+Using npm
 
 ```bash
 npm install
 ```
 
-### Start Development Server
+Using pnpm
+
+```bash
+pnpm install
+```
+
+---
+
+## Run Development Server
 
 ```bash
 npm run dev
 ```
 
-### Build Project
+---
+
+## Production Build
 
 ```bash
 npm run build
@@ -171,148 +358,137 @@ npm run build
 
 ---
 
-# 📸 Screenshots
+## Preview Production Build
 
-## Home
-
-<img src="docs/screenshots/home.png"/>
-
----
-
-## Login
-
-<img src="docs/screenshots/login.png"/>
-
----
-
-## Profile
-
-<img src="docs/screenshots/profile.png"/>
-
----
-
-## Feed
-
-<img src="docs/screenshots/feed.png"/>
-
----
-
-## Search
-
-<img src="docs/screenshots/search.png"/>
-
----
-
-## Mobile View
-
-<img src="docs/screenshots/mobile.png"/>
-
----
-
-# 🏗 System Architecture
-
-```
-                 User
-                   │
-                   ▼
-      React + TypeScript + Vite
-                   │
-                   ▼
-      AWS Cognito Authentication
-                   │
-                   ▼
-        Application Services
-                   │
-                   ▼
-      Cloud APIs & Database
+```bash
+npm run preview
 ```
 
 ---
 
-# 🔄 Project Workflow
+# 📄 Environment Variables
 
-```
-User Registration
-        │
-        ▼
-Authentication
-        │
-        ▼
-User Dashboard
-        │
-        ▼
-Create Posts
-        │
-        ▼
-Like • Comment • Share
-        │
-        ▼
-Search & Discover
+Create a `.env` file in the project root.
+
+```env
+VITE_SUPABASE_URL=YOUR_SUPABASE_URL
+VITE_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
 ```
 
 ---
 
-# 📊 Performance
+# 🚀 Deployment
 
-- Optimized Bundle Splitting
-- Fast Build with Vite
-- Lazy Loading
-- Tree Shaking
-- Responsive UI
-- High Rendering Performance
+### Web
 
----
+* Vercel
+* Netlify
+* GitHub Pages (after configuration)
 
-# 🔒 Security
+### Android
 
-- AWS Cognito Authentication
-- Protected Routes
-- Secure User Sessions
-- Environment Variable Support
-- Cloud-Based Authentication
+```bash
+npx cap sync android
+npx cap open android
+```
 
----
+### iOS
 
-# 📱 Responsive Design
-
-✅ Desktop
-
-✅ Laptop
-
-✅ Tablet
-
-✅ Mobile
+```bash
+npx cap sync ios
+npx cap open ios
+```
 
 ---
 
-# 📚 Learning Outcomes
+# 📄 Project Report
 
-This project helped us gain practical experience in:
+The complete documentation is available inside this repository.
 
-- React Development
-- TypeScript
-- AWS Cognito
-- Team Collaboration
-- Git & GitHub Workflow
-- Component-Based Development
-- Responsive UI Design
-- Performance Optimization
-- Modern Frontend Development
+📘 **Project Report**
+
+```text
+assets/Equyvo_Project_Report.pdf
+```
 
 ---
 
-# 🚀 Future Enhancements
+# 📊 Performance Highlights
 
-- AI Content Recommendation
-- Real-Time Chat
-- Video Calling
-- Voice Calling
-- Stories Feature
-- Push Notifications
-- AI Content Moderation
-- Multi-language Support
-- Analytics Dashboard
-- Real-Time Collaboration
+* ⚡ Optimized Bundle Splitting
+* ⚡ Lazy Loaded Components
+* ⚡ Responsive UI
+* ⚡ Smooth Animations
+* ⚡ Error Recovery
+* ⚡ Offline Support
+* ⚡ Secure Authentication
+* ⚡ Network Detection
+* ⚡ Cross Platform Performance
+
+---
+
+> ✅ **End of Part 2**
+
+Next part includes:
+
+* 🌟 Roadmap
+* 🤝 Contributing
+* 👨‍💻 About the Developer
+* 📜 License
+* ⭐ Support
+* ❤️ Footer
+
+<!-- ========================================================= -->
+
+<!--                    EQUYVO README - PART 3                 -->
+
+<!-- ========================================================= -->
+
+# 🗺️ Roadmap
+
+## 🚀 Upcoming Features
+
+* 🤖 AI Recommendation Engine
+* 🎥 Video Calling
+* 🎙️ Voice Rooms
+* 📡 Live Streaming
+* 💸 Creator Monetization
+* 🛍️ Marketplace
+* 👥 Communities & Groups
+* 🌍 Multi-language Support
+* 📊 Creator Analytics Dashboard
+* 🔔 Smart Push Notifications
+
+---
+
+# 🔐 Security
+
+Equyvo follows modern security practices.
+
+* Secure Authentication
+* JWT Session Management
+* Environment Variable Protection
+* Input Validation
+* Protected Routes
+* XSS Protection
+* CSRF Protection
+* Secure Database Access
+
+---
+
+# ⚡ Performance
+
+Optimized for a smooth user experience.
+
+* Lazy Loading
+* Code Splitting
+* Optimized Images
+* Responsive Layout
+* Fast Navigation
+* Offline Support
+* Network Detection
+* Error Recovery
+* Efficient Rendering
 
 ---
 
@@ -320,59 +496,99 @@ This project helped us gain practical experience in:
 
 Contributions are welcome!
 
-1. Fork the repository.
-2. Create a new branch.
+1. Fork this repository.
+2. Create a new feature branch.
 3. Commit your changes.
-4. Push the branch.
-5. Create a Pull Request.
+4. Push your branch.
+5. Open a Pull Request.
 
 ---
 
-# 👨‍💻 Team Members
+# 📝 License
 
-- Ashirbad Pattnaik
-- Team Contributors
+This project is licensed under the **MIT License**.
 
----
-
-# 🙏 Acknowledgements
-
-Special thanks to our mentors, teammates, and the open-source community for their continuous support and the amazing tools that made this project possible.
+Feel free to use, modify and improve this project while respecting the license terms.
 
 ---
 
-# 📜 CHANGELOG
+# 👨‍💻 Developer
 
-## Version 1.0.0
+<div align="center">
 
-- Initial Release
-- Authentication Module
-- User Profile
-- Feed System
-- Search Feature
-- Responsive UI
-- Performance Optimization
+## Ashirbad Pattnaik
+
+**B.Tech – Computer Science & Technology**
+
+National Institute of Science and Technology
+
+</div>
+
+### 🌐 Portfolio
+
+```text
+https://ash-tech.lovable.app/
+```
+
+### 💻 GitHub
+
+```text
+https://github.com/ashirbad003
+```
+
+### 📂 Repository
+
+```text
+https://github.com/ashirbad003/Equyvo-social-media-platform
+```
 
 ---
 
-# 📄 License
+# 💖 Acknowledgements
 
-This project is licensed under the MIT License.
+Special thanks to the open-source community and the developers behind:
+
+* React
+* TypeScript
+* Vite
+* Supabase
+* Capacitor
+* Tailwind CSS
+* Radix UI
+* Lucide React
+
+Their amazing tools made this project possible.
 
 ---
 
-# ⭐ Support
+# 🌟 Support
 
-If you found this project useful, please consider giving it a ⭐ on GitHub.
+If you found this project useful,
 
-It motivates us to build more amazing open-source projects.
+⭐ **Star the repository**
+
+🍴 **Fork the repository**
+
+💬 **Share your feedback**
+
+Every contribution and suggestion helps improve Equyvo.
+
+---
+
+# 📬 Contact
+
+If you'd like to collaborate, discuss ideas, or provide feedback, feel free to reach out through GitHub or my portfolio.
 
 ---
 
 <div align="center">
 
-## ❤️ Made with passion by Team Equyvo
+## 🚀 Built with ❤️ by Ashirbad Pattnaik
 
-**Empowering Social Connections Through Technology**
+### ⭐ If you like Equyvo, don't forget to Star this repository!
+
+<img src="assets/logo.png" width="120" alt="Equyvo Logo"/>
+
+**Modern • Scalable • Cross-Platform • Built for Everyone**
 
 </div>
