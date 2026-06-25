@@ -1,0 +1,1401 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    /* Hide scrollbars globally */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  *::-webkit-scrollbar {
+    display: none;
+  }
+  
+  html {
+    @apply bg-background text-foreground;
+    scroll-behavior: smooth;
+    background-color: #0a0a0a !important;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    min-height: 100vh;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background-color: #0a0a0a !important;
+  }
+  
+  #root {
+    @apply bg-background text-foreground;
+    min-height: 100vh;
+    background-color: #0a0a0a !important;
+    color: hsl(var(--foreground)) !important;
+  }
+}
+
+@layer components {
+  /* Story viewer styles */
+  .story-viewer {
+    @apply fixed top-0 left-0 w-screen h-screen bg-black z-[99999] flex items-center justify-center;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: 100vw !important;
+    max-height: 100vh !important;
+  }
+
+  .story-content {
+    @apply w-full h-full relative bg-black;
+    max-width: 100vw !important;
+    max-height: 100vh !important;
+    width: 100vw !important;
+    height: 100vh !important;
+  }
+
+  .story-progress {
+    @apply absolute top-0 left-0 right-0 z-10;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent);
+  }
+
+  .story-progress-bar {
+    @apply h-full bg-white transition-all duration-100;
+    width: 0%;
+    transition-timing-function: linear;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.9);
+    border-radius: 9999px;
+  }
+
+  .story-header {
+    @apply absolute top-0 left-0 right-0 p-4 flex items-center justify-between z-10;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+  }
+
+  .story-user-info {
+    @apply flex items-center gap-3;
+  }
+
+  .story-image {
+    @apply w-full h-full object-cover;
+    width: 100vw !important;
+    height: 100vh !important;
+    object-fit: contain !important;
+    background: black !important;
+  }
+
+  /* Universal Media Viewer - ensure true fullscreen coverage like MomentsPage */
+  .universal-media-viewer {
+    @apply fixed top-0 left-0 w-screen h-screen bg-black overflow-hidden;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: 100vw !important;
+    max-height: 100vh !important;
+    min-width: 100vw !important;
+    min-height: 100vh !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 999999 !important;
+  }
+
+  .universal-media-content {
+    @apply flex-1 relative w-full h-full;
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: 100vw !important;
+    max-height: 100vh !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Enhanced image alignment for universal media viewer */
+  .universal-media-content img,
+  .universal-media-content video {
+    object-fit: contain !important;
+    object-position: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100vw !important;
+    max-height: 100vh !important;
+  }
+  .fullscreen-viewer {
+    @apply fixed top-0 left-0 w-screen h-screen bg-black z-[999999] flex flex-col;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: 100vw !important;
+    max-height: 100vh !important;
+    min-width: 100vw !important;
+    min-height: 100vh !important;
+    overflow: hidden !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+  }
+
+  .fullscreen-content {
+    @apply flex-1 relative w-full h-full;
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: 100vw !important;
+    max-height: 100vh !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .fullscreen-media {
+    @apply w-full h-full;
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: 100vw !important;
+    max-height: 100vh !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    /* Improved image quality settings */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: auto;
+    image-resolution: from-image;
+    /* Better alignment for fullscreen mode - default to contain for better viewing */
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+
+  /* Fullscreen action buttons - ensure they are at the very bottom edge */
+  .fullscreen-viewer .fullscreen-action-buttons {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    padding: 0;
+    box-sizing: border-box;
+    z-index: 50;
+  }
+
+  /* Fullscreen post info bar - ensure it's at the very bottom edge */
+  .fullscreen-viewer .fullscreen-info-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    box-sizing: border-box;
+  }
+
+  /* Custom scrollbar hide class */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Professional app improvements */
+  .equyvo-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+
+  .equyvo-text-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Enhanced animations for premium feel */
+  .fade-in {
+    animation: fadeIn 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @keyframes fadeIn {
+    from { 
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .slide-up {
+    animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Premium hover effects */
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .smooth-transition {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Premium loading animations */
+  .pulse-animation {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(0.98);
+    }
+  }
+
+  /* Enhanced button styles for premium feel */
+  .btn-primary-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  }
+
+  .btn-primary-gradient:hover {
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+  }
+
+  /* Premium card improvements */
+  .card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(102, 126, 234, 0.1);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    border-color: rgba(102, 126, 234, 0.3);
+  }
+
+  /* Premium input improvements */
+  .input-glow:focus {
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15), 0 0 20px rgba(102, 126, 234, 0.1);
+    border-color: #667eea;
+  }
+
+  /* Premium scroll indicators */
+  .scrollbar-indicator {
+    position: relative;
+  }
+
+  .scrollbar-indicator::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 3px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .scrollbar-indicator:hover::after {
+    opacity: 1;
+  }
+
+  /* Premium badge styles */
+  .premium-badge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+  }
+
+  /* Premium notification styles */
+  .notification-dot {
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+    animation: pulse 2s infinite;
+  }
+
+  /* Mobile responsive improvements */
+  @media (max-width: 768px) {
+    .mobile-full-width {
+      @apply w-full;
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-2px) scale(1.01);
+    }
+  }
+
+  /* Premium accessibility improvements */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Premium dark mode enhancements */
+  .dark .glass-morphism {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .dark .card-hover:hover {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  }
+
+  .dark .input-glow:focus {
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2), 0 0 25px rgba(102, 126, 234, 0.15);
+  }
+
+  /* Premium micro-animations */
+  .micro-bounce:hover {
+    animation: microBounce 0.3s ease;
+  }
+
+  @keyframes microBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  /* Premium skeleton loading */
+  .skeleton-loader {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+  }
+
+  @keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* Shimmer animation for progress bars - Enhanced */
+  @keyframes shimmer {
+    0% { 
+      transform: translateX(-100%);
+      opacity: 0.6;
+    }
+    50% { 
+      transform: translateX(0%);
+      opacity: 1;
+    }
+    100% { 
+      transform: translateX(100%);
+      opacity: 0.6;
+    }
+  }
+
+  /* Pulse animation for loading state */
+  @keyframes shimmerPulse {
+    0%, 100% { 
+      opacity: 0.4;
+      transform: scale(1);
+    }
+    50% { 
+      opacity: 0.8;
+      transform: scale(1.02);
+    }
+  }
+
+  /* Instagram-style loading animation for progress bars */
+  .instagram-loading {
+    background: rgba(255, 255, 255, 0.8);
+    animation: instagramLoading 1.5s ease-out forwards;
+  }
+
+  /* Instagram loading animation - fills from 0% to 100% */
+  @keyframes instagramLoading {
+    0% {
+      width: 0%;
+      opacity: 0.7;
+    }
+    100% {
+      width: 100%;
+      opacity: 1;
+    }
+  }
+
+  .dark .skeleton-loader {
+    background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+    background-size: 200% 100%;
+  }
+
+  /* Additional UI improvements for equyvo app */
+  .equyvo-button {
+    @apply transition-all duration-200 transform hover:scale-105 active:scale-95;
+  }
+
+  .equyvo-card {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .equyvo-input {
+    @apply transition-all duration-200 focus:ring-2 focus:ring-primary/20;
+  }
+
+  /* Better spacing and layout */
+  .equyvo-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Enhanced mobile-first responsive improvements */
+  @media (max-width: 640px) {
+    .equyvo-mobile-full {
+      @apply w-full !important;
+    }
+    
+    .equyvo-mobile-stack {
+      @apply flex-col !important;
+    }
+    
+    .equyvo-mobile-center {
+      @apply text-center !important;
+    }
+
+    /* Better mobile touch targets */
+    .mobile-touch-target {
+      @apply min-h-[44px] min-w-[44px] flex items-center justify-center;
+    }
+
+    /* Optimized mobile spacing */
+    .mobile-spacing-tight {
+      @apply space-y-2;
+    }
+
+    .mobile-spacing-normal {
+      @apply space-y-3;
+    }
+
+    /* Better mobile cards */
+    .mobile-card {
+      @apply rounded-lg shadow-sm border border-border/50;
+    }
+
+    /* Mobile text optimization */
+    .mobile-text-sm {
+      @apply text-sm;
+    }
+
+    .mobile-text-xs {
+      @apply text-xs;
+    }
+
+    /* Mobile button optimization */
+    .mobile-button {
+      @apply px-3 py-2 text-sm min-h-[44px];
+    }
+
+    /* Mobile input optimization */
+    .mobile-input {
+      @apply px-3 py-2 text-sm min-h-[44px];
+    }
+  }
+
+  /* Tablet responsive improvements */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .tablet-spacing {
+      @apply space-y-4;
+    }
+
+    .tablet-card {
+      @apply rounded-xl shadow-md;
+    }
+  }
+
+  /* Enhanced loading states */
+  .equyvo-loading {
+    @apply animate-pulse bg-muted;
+  }
+
+  /* Better focus states */
+  .equyvo-focus-ring:focus {
+    @apply ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+
+  /* Improved button variants */
+  .btn-equyvo-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-colors;
+  }
+
+  .btn-equyvo-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors;
+  }
+
+  /* Better text rendering */
+  .equyvo-text {
+    @apply leading-relaxed;
+  }
+
+  /* Improved shadows */
+  .equyvo-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .equyvo-shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Mobile safe area padding */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 1rem);
+  }
+
+  /* Safe area inset for mobile navigation */
+  .safe-area-inset-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+
+  /* Fix mobile navbar bottom spacing */
+  @media (max-width: 767px) {
+    .fixed.bottom-0 {
+      bottom: 0 !important;
+      margin-bottom: 0 !important;
+      padding-bottom: env(safe-area-inset-bottom, 0) !important;
+    }
+  }
+
+  /* Enhanced mobile navigation with safe area and better touch targets */
+  @media (max-width: 767px) {
+    /* Ensure proper mobile viewport handling */
+    html, body {
+      width: 100vw;
+      height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      top: 0;
+      left: 0;
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Root container for mobile */
+    #root {
+      width: 100vw;
+      height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Portrait mobile specific styles */
+    .mobile-nav-safe {
+      padding-bottom: calc(env(safe-area-inset-bottom, 0) + 0.25rem);
+      padding-top: 0.25rem;
+      height: auto;
+      min-height: 3.5rem;
+      max-height: 4rem;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    /* Mobile top safe area for notch and status bar */
+    .mobile-top-safe {
+      padding-top: calc(env(safe-area-inset-top, 0) + 0.25rem);
+      height: auto;
+      min-height: 2.75rem;
+      max-height: 3.25rem;
+    }
+
+    /* Better mobile navigation items for portrait */
+    .mobile-nav-item {
+      @apply flex flex-col items-center justify-center p-1 min-h-[40px] min-w-[40px];
+      @apply transition-colors hover:text-primary active:scale-95;
+      @apply rounded-lg;
+    }
+
+    /* Mobile navigation active state */
+    .mobile-nav-active {
+      @apply bg-primary/10 text-primary scale-105;
+    }
+
+    /* Mobile navigation inactive state */
+    .mobile-nav-inactive {
+      @apply text-muted-foreground hover:text-foreground hover:bg-accent/20;
+    }
+
+    /* Adjust main content for portrait mobile - ensure proper viewport fitting */
+    .mobile-main-content {
+      padding-top: calc(env(safe-area-inset-top, 0) + 3rem);
+      padding-bottom: calc(env(safe-area-inset-bottom, 0) + 3rem);
+      min-height: 100vh;
+      max-height: 100vh;
+      box-sizing: border-box;
+      overflow-y: auto;
+      width: 100vw;
+      overflow-x: hidden;
+    }
+
+    /* Prevent zoom on input focus */
+    input, textarea, select {
+      font-size: 16px !important;
+      -webkit-appearance: none;
+      -webkit-border-radius: 0;
+      border-radius: 0;
+    }
+
+    /* Better mobile dialog handling */
+    .dialog-mobile-full {
+      width: 100vw;
+      height: 100vh;
+      max-width: 100vw;
+      max-height: 100vh;
+      margin: 0;
+      border-radius: 0;
+    }
+
+    /* Ensure mobile dialogs don't cause overflow */
+    [role="dialog"] {
+      max-height: 90vh;
+      overflow: hidden;
+    }
+  }
+
+  /* Tablet and small desktop styles (768px - 1024px) */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .mobile-nav-safe {
+      padding-bottom: calc(env(safe-area-inset-bottom, 0) + 0.5rem);
+      padding-top: 0.5rem;
+    }
+
+    .mobile-top-safe {
+      padding-top: calc(env(safe-area-inset-top, 0) + 0.5rem);
+    }
+
+    .mobile-nav-item {
+      @apply flex flex-col items-center justify-center p-1 min-h-[44px] min-w-[44px];
+      @apply transition-colors hover:text-primary active:scale-95;
+      @apply rounded-lg;
+    }
+
+    .mobile-nav-active {
+      @apply bg-primary/10 text-primary scale-105;
+    }
+
+    .mobile-nav-inactive {
+      @apply text-muted-foreground hover:text-foreground hover:bg-accent/20;
+    }
+
+    .mobile-main-content {
+      padding-top: calc(env(safe-area-inset-top, 0) + 3.5rem);
+      padding-bottom: calc(env(safe-area-inset-bottom, 0) + 3.5rem);
+    }
+  }
+
+  /* Enhanced safe area support for notched devices */
+  @supports (padding: max(0px)) {
+    .safe-area-padding {
+      padding-left: max(1rem, env(safe-area-inset-left));
+      padding-right: max(1rem, env(safe-area-inset-right));
+      padding-top: max(1rem, env(safe-area-inset-top));
+      padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    }
+
+    .safe-area-padding-horizontal {
+      padding-left: max(1rem, env(safe-area-inset-left));
+      padding-right: max(1rem, env(safe-area-inset-right));
+    }
+
+    .safe-area-padding-vertical {
+      padding-top: max(1rem, env(safe-area-inset-top));
+      padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    }
+
+    .safe-area-margin {
+      margin-left: max(0px, env(safe-area-inset-left));
+      margin-right: max(0px, env(safe-area-inset-right));
+      margin-top: max(0px, env(safe-area-inset-top));
+      margin-bottom: max(0px, env(safe-area-inset-bottom));
+    }
+
+    .safe-area-margin-horizontal {
+      margin-left: max(0px, env(safe-area-inset-left));
+      margin-right: max(0px, env(safe-area-inset-right));
+    }
+
+    .safe-area-margin-vertical {
+      margin-top: max(0px, env(safe-area-inset-top));
+      margin-bottom: max(0px, env(safe-area-inset-bottom));
+    }
+  }
+
+  /* Notch-aware mobile navigation adjustments */
+  @media (max-width: 1024px) {
+    .notch-aware-nav {
+      padding-left: max(0.5rem, env(safe-area-inset-left));
+      padding-right: max(0.5rem, env(safe-area-inset-right));
+    }
+
+    .notch-aware-content {
+      padding-left: max(1rem, env(safe-area-inset-left));
+      padding-right: max(1rem, env(safe-area-inset-right));
+    }
+  }
+  .content-thumbnail {
+    @apply relative overflow-hidden;
+  }
+
+  .content-thumbnail-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 transition-all duration-300;
+  }
+
+  .content-thumbnail:hover .content-thumbnail-overlay {
+    @apply opacity-100;
+  }
+
+  .content-thumbnail-text {
+    @apply text-white font-bold text-sm drop-shadow-md;
+  }
+
+  .content-thumbnail-stats {
+    @apply text-white/90 text-sm font-medium;
+  }
+
+  .enhanced-hover-overlay {
+    @apply absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100;
+  }
+
+  .enhanced-text-overlay {
+    @apply absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300;
+  }
+
+  /* Better focus states for accessibility */
+  .focus-visible:focus {
+    @apply ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+
+  /* Enhanced button visibility */
+  .enhanced-button {
+    @apply transition-all duration-200 transform hover:scale-105 focus:scale-105 focus:ring-2 focus:ring-primary/20;
+  }
+
+  /* Improved text contrast */
+  .high-contrast-text {
+    @apply text-gray-900 dark:text-white;
+  }
+
+  .medium-contrast-text {
+    @apply text-gray-700 dark:text-gray-200;
+  }
+
+  /* Better card hover effects */
+  .enhanced-card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02];
+  }
+
+  /* Improved media containers */
+  .media-container {
+    @apply relative w-full h-full object-cover rounded-lg;
+  }
+
+  .media-overlay {
+    @apply absolute inset-0 bg-black/40 rounded-lg;
+  }
+
+  /* Loading states with better visibility */
+  .loading-skeleton {
+    @apply animate-pulse bg-gray-200 dark:bg-gray-700 rounded;
+  }
+
+  /* Better responsive text sizing for mobile */
+  .responsive-text-xs {
+    @apply text-xs sm:text-xs md:text-sm;
+  }
+
+  .responsive-text-sm {
+    @apply text-xs sm:text-sm md:text-base;
+  }
+
+  .responsive-text-base {
+    @apply text-sm sm:text-base md:text-lg;
+  }
+
+  .responsive-text-lg {
+    @apply text-base sm:text-lg md:text-xl;
+  }
+
+  .responsive-text-xl {
+    @apply text-lg sm:text-xl md:text-2xl;
+  }
+
+  /* Mobile-first container spacing */
+  .mobile-container {
+    @apply px-3 sm:px-4 md:px-6;
+  }
+
+  .mobile-container-tight {
+    @apply px-2 sm:px-3 md:px-4;
+  }
+
+  /* Better mobile grid layouts */
+  .mobile-grid-1 {
+    @apply grid grid-cols-1 gap-3 sm:gap-4;
+  }
+
+  .mobile-grid-2 {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4;
+  }
+
+  .mobile-grid-3 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4;
+  }
+
+  /* Enhanced icon visibility */
+  .enhanced-icon {
+    @apply drop-shadow-md;
+  }
+
+  .enhanced-icon-white {
+    @apply text-white drop-shadow-lg;
+  }
+
+  /* Better gradient overlays for text readability */
+  .text-gradient-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+  }
+
+  .text-gradient-overlay-light {
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+  }
+
+  /* Improved button hover states */
+  .button-hover-enhanced {
+    @apply hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/20;
+  }
+
+  /* Better badge visibility */
+  .enhanced-badge {
+    @apply px-2 py-1 text-xs font-semibold rounded-full backdrop-blur-sm;
+  }
+
+  .enhanced-badge-light {
+    @apply bg-white/80 text-gray-800 dark:bg-black/60 text-white;
+  }
+
+  .enhanced-badge-dark {
+    @apply bg-black/80 text-white;
+  }
+
+  /* Mobile touch targets with better accessibility */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px] flex items-center justify-center;
+    @apply transition-all duration-200 active:scale-95;
+  }
+
+  /* Enhanced touch targets for smaller screens */
+  @media (max-width: 480px) {
+    .touch-target {
+      @apply min-h-[48px] min-w-[48px];
+    }
+  }
+
+  /* Improved spacing for readability */
+  .readable-spacing {
+    @apply space-y-4;
+  }
+
+  .compact-spacing {
+    @apply space-y-2;
+  }
+
+  /* Better contrast for actionable elements */
+  .actionable-element {
+    @apply hover:bg-gray-100 dark:hover:bg-gray-800 active:bg-gray-200 dark:active:bg-gray-700 transition-colors;
+  }
+
+  /* Enhanced search and filter visibility */
+  .search-input-enhanced {
+    @apply pl-10 pr-4 py-2 bg-background border-2 border-border rounded-lg focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all;
+  }
+
+  .filter-button-enhanced {
+    @apply px-3 py-1.5 text-sm font-medium rounded-lg transition-all hover:scale-105 active:scale-95;
+  }
+
+  .filter-button-active {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+  }
+
+  .filter-button-inactive {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+  }
+
+  /* Line clamp utilities with better readability */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.5;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.5;
+  }
+
+  /* Enhanced scroll indicators */
+  .scroll-enhanced {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(203 213 225) transparent;
+  }
+
+  .scroll-enhanced::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scroll-enhanced::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scroll-enhanced::-webkit-scrollbar-thumb {
+    background-color: rgb(203 213 225);
+    border-radius: 3px;
+  }
+
+  .scroll-enhanced::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(165 180 196);
+  }
+
+  .dark .scroll-enhanced::-webkit-scrollbar-thumb {
+    background-color: rgb(75 85 99);
+  }
+
+  .dark .scroll-enhanced::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(107 114 128);
+  }
+
+  /* Enhanced dropdown menu styles */
+  .dropdown-menu-content {
+    @apply bg-popover border-border shadow-lg;
+    animation: dropdownSlide 0.2s ease-out;
+    z-index: 1000000 !important;
+  }
+
+  @keyframes dropdownSlide {
+    from {
+      opacity: 0;
+      transform: translateY(-10px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Enhanced dialog animations */
+  .dialog-content {
+    animation: dialogFadeIn 0.3s ease-out;
+  }
+
+  @keyframes dialogFadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9) translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  /* Enhanced toast notifications */
+  .toast-notify {
+    animation: toastSlide 0.3s ease-out;
+  }
+
+  @keyframes toastSlide {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Better loading states */
+  .loading-dots {
+    display: inline-flex;
+    gap: 4px;
+  }
+
+  .loading-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+    animation: loadingDot 1.4s infinite ease-in-out;
+  }
+
+  .loading-dots span:nth-child(1) { animation-delay: -0.32s; }
+  .loading-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+  @keyframes loadingDot {
+    0%, 80%, 100% {
+      transform: scale(0.8);
+      opacity: 0.5;
+    }
+    40% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Enhanced button feedback */
+  .btn-press {
+    transition: all 0.15s ease;
+  }
+
+  .btn-press:active {
+    transform: scale(0.95);
+  }
+
+  /* Better form inputs */
+  .form-input-enhanced {
+    @apply w-full px-3 py-2 border border-input rounded-md bg-background text-sm transition-colors;
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+    @apply placeholder:text-muted-foreground;
+  }
+
+  /* Enhanced avatar styles */
+  .avatar-enhanced {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+
+  /* Better navigation indicators */
+  .nav-active {
+    @apply text-primary font-medium;
+  }
+
+  .nav-inactive {
+    @apply text-muted-foreground hover:text-foreground transition-colors;
+  }
+
+  /* Enhanced search suggestions */
+  .search-suggestion-item {
+    @apply px-3 py-2 hover:bg-accent cursor-pointer transition-colors;
+    @apply first:rounded-t-lg last:rounded-b-lg;
+  }
+
+  .search-suggestion-item:hover {
+    @apply bg-accent/80;
+  }
+
+  /* Better mobile navigation */
+  .mobile-nav-item {
+    @apply flex flex-col items-center justify-center p-2 min-h-[44px] min-w-[44px];
+    @apply transition-colors hover:text-primary active:scale-95;
+  }
+
+  /* Fix mobile navbar full width issue */
+  .mobile-navbar-full-width {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    z-index: 50 !important;
+    border: none !important;
+  }
+
+  /* Enhanced story indicators */
+  .story-ring {
+    @apply bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-500 p-0.5 rounded-full;
+  }
+
+  .story-seen {
+    @apply bg-gray-300 dark:bg-gray-600;
+  }
+
+  /* Enhanced mobile cards with better shadows and feedback */
+  .mobile-card {
+    @apply bg-card border border-border rounded-lg overflow-hidden;
+    @apply transition-all duration-200 hover:shadow-md hover:-translate-y-0.5;
+    @apply active:scale-98;
+  }
+
+  .mobile-card-compact {
+    @apply rounded-md shadow-sm border border-border/50;
+    @apply transition-all duration-150 hover:shadow-sm;
+  }
+
+  /* Mobile-safe scrolling */
+  .mobile-scroll {
+    @apply overflow-x-auto scrollbar-hide;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Mobile-safe fixed positioning */
+  .mobile-fixed {
+    @apply fixed z-40;
+  }
+
+  /* Mobile-safe bottom positioning with safe area */
+  .mobile-bottom {
+    bottom: env(safe-area-inset-bottom, 0);
+  }
+
+  /* Enhanced media overlays */
+  .media-hover-overlay {
+    @apply absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-200;
+    @apply flex items-center justify-center opacity-0 group-hover:opacity-100;
+  }
+
+  /* Better accessibility */
+  .skip-link {
+    @apply absolute -top-10 left-0 bg-primary text-primary-foreground px-4 py-2 rounded-md;
+    @apply focus:top-4 focus:left-4 z-50;
+  }
+
+  /* Enhanced error states */
+  .error-state {
+    @apply text-destructive bg-destructive/10 border border-destructive/20 rounded-lg p-4;
+  }
+
+  /* Enhanced video progress bar styles */
+  .video-progress-bar {
+    @apply relative w-full h-2 bg-white/30 rounded-full overflow-hidden cursor-pointer;
+  }
+
+  .video-progress-fill {
+    @apply absolute left-0 top-0 h-full bg-gradient-to-r from-red-500 to-red-600 rounded-full transition-all duration-100 ease-out;
+  }
+
+  .video-progress-buffered {
+    @apply absolute left-0 top-0 h-full bg-white/50 rounded-full transition-all duration-300;
+  }
+
+  .video-progress-handle {
+    @apply absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 transform group-hover:scale-110;
+  }
+
+  .video-progress-input {
+    @apply absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10;
+    appearance: none;
+    background: transparent;
+  }
+
+  .video-progress-input::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .video-progress-input::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Enhanced video controls */
+  .video-controls-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40 transition-opacity duration-300;
+  }
+
+  .video-controls-visible {
+    @apply opacity-100;
+  }
+
+  .video-controls-hidden {
+    @apply opacity-0;
+  }
+
+  /* Loading spinner for videos */
+  .video-loading-spinner {
+    @apply w-8 h-8 border-2 border-white border-t-transparent rounded-full animate-spin;
+  }
+
+  /* Enhanced video player container */
+  .video-player-container {
+    @apply relative w-full h-full bg-black overflow-hidden;
+  }
+
+  .video-element {
+    @apply w-full h-full object-cover;
+  }
+
+  /* Mobile video player optimizations */
+  @media (max-width: 768px) {
+    .video-progress-bar {
+      @apply h-1.5;
+    }
+    
+    .video-progress-handle {
+      @apply w-3 h-3;
+    }
+    
+    .video-progress-input::-webkit-slider-thumb {
+      width: 12px;
+      height: 12px;
+    }
+    
+    .video-progress-input::-moz-range-thumb {
+      width: 12px;
+      height: 12px;
+    }
+  }
+}
+
+/* Success states */
+.success-state {
+  @apply text-green-700 bg-green-50 border border-green-200 rounded-lg p-4;
+}
+
+.dark .success-state {
+  @apply text-green-400 bg-green-900/20 border-green-800/30;
+}

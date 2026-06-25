@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Equyvo</string>
+    <string name="title_activity_main">Equyvo</string>
+    <string name="package_name">com.equyvo.app</string>
+    <string name="custom_url_scheme">com.equyvo.app</string>
+</resources>
